@@ -1,0 +1,335 @@
+/* ===== HOMEPAGE - ALTERNATING THEME SYSTEM ===== */
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Adjust for fixed navbar height */
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #0f0f1a;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.homepage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #ff8c42;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  z-index: 2000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  flex: 1;
+  padding-top: 80px; /* Space for fixed navbar */
+}
+
+/* ===== SECTION WRAPPER SYSTEM ===== */
+.section-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 5rem 2rem;
+  transition: background 0.5s ease;
+}
+
+/* Dark Theme Sections */
+.section-dark {
+  background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
+  color: #ffffff;
+}
+
+.section-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at top, rgba(100, 200, 255, 0.08), transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(255, 150, 100, 0.06), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Light Theme Sections */
+.section-light {
+  background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+  color: #1a1a2e;
+  position: relative;
+}
+
+.section-light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at top, rgba(255, 217, 179, 0.15), transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(167, 199, 231, 0.12), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Gradient Finale Section */
+.section-gradient {
+  background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 30%, #2d2d44 70%, #1a1a2e 100%);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 140, 66, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(167, 199, 231, 0.2) 0%, transparent 40%);
+  animation: gradient-shift 15s ease infinite;
+  pointer-events: none;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Section Content Layer */
+.section-wrapper > * {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ===== SECTION TRANSITION EFFECTS ===== */
+.section-wrapper {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: section-fade-in 0.8s ease forwards;
+}
+
+.section-wrapper:nth-child(1) { animation-delay: 0.1s; }
+.section-wrapper:nth-child(2) { animation-delay: 0.2s; }
+.section-wrapper:nth-child(3) { animation-delay: 0.3s; }
+.section-wrapper:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes section-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll-triggered animation class (JS can add this) */
+.section-wrapper.in-view {
+  animation: section-slide-up 0.6s ease forwards;
+}
+
+@keyframes section-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== DIVIDER BETWEEN SECTIONS ===== */
+.section-wrapper + .section-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 800px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 140, 66, 0.5),
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  opacity: 0.6;
+}
+
+.section-light + .section-wrapper::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(15, 15, 26, 0.15),
+    rgba(255, 140, 66, 0.4),
+    rgba(15, 15, 26, 0.15),
+    transparent
+  );
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  padding: 2.5rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #0f0f1a 0%, #0a0a12 100%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-accent {
+  background: linear-gradient(135deg, #ff8c42, #ffd9b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.footer-sub {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+  .section-wrapper {
+    padding: 4rem 1.5rem;
+  }
+  
+  .main-content {
+    padding-top: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-wrapper {
+    padding: 3rem 1.25rem;
+  }
+  
+  html {
+    scroll-padding-top: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-wrapper {
+    padding: 2.5rem 1rem;
+  }
+  
+  .site-footer {
+    padding: 2rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Focus visible for keyboard users */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #ffd9b3;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* ===== UTILITY CLASSES FOR SECTIONS ===== */
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section-dark .section-title {
+  color: #ffffff;
+}
+
+.section-light .section-title {
+  color: #0f0f1a;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: inherit;
+  opacity: 0.85;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.section-dark .section-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.section-light .section-subtitle {
+  color: rgba(15, 15, 26, 0.85);
+}
+
+/* Content Container */
+.section-content {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Background Effects */
+.footer-bg-mesh {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+

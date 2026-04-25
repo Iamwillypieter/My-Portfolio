@@ -36,7 +36,7 @@ export const experienceData = [
     role: "IT Staff",
     company: "PT. Canang Indah Particle & MDF Board",
     desc: "Responsible for managing and securing the company's network and server infrastructure. I design and develop web-based applications to automate internal processes, improving operational efficiency and simplifying factory workflows through digital innovation.",
-    tech: ["Network & Server Security", "React.js", "Python", "Web Development"]
+    tech: ["Network & Server Security", "React.js", "Python", "Web Development", "Node.js", "PostgreSQL"],
   }
 ];
 
@@ -174,5 +174,50 @@ export const socialLinks = [
     icon: "📧",
     label: "Email",
     external: true
+  }
+];
+
+export const servicesData = [
+  {
+    id: 1,
+    icon: "🌐",
+    title: "Full-Stack Web Development",
+    desc: "Building modern, high-performance web applications from concept to deployment.",
+    features: [
+      "Responsive & Interactive UI",
+      "Scalable Backend Architecture",
+      "Database Design & Optimization",
+      "Real-time Data Sync"
+    ],
+    tech: ["React", "Node.js", "PostgreSQL", "Python"],
+    featured: true
+  },
+  {
+    id: 2,
+    icon: "🔐",
+    title: "IT Infrastructure & Security",
+    desc: "Secure, reliable, and monitored server environments tailored for industrial & enterprise needs.",
+    features: [
+      "Network Architecture & Monitoring",
+      "Server Hardening & Backup",
+      "Firewall & Access Control",
+      "Incident Response & Recovery"
+    ],
+    tech: ["Python", "Firewall Configuration", "Network Monitoring Tools"],
+    featured: false
+  },
+  {
+    id: 3,
+    icon: "⚡",
+    title: "Design",
+    desc: "Creating visually appealing and user-friendly interfaces that enhance the overall user experience.",
+    features: [
+      "UI/UX Design",
+      "Simple & Clean Aesthetics",
+      "Friendly User Experience",
+      "Brand Identity & Consistency"
+    ],
+    tech: ["Figma", "Canva"],
+    featured: false
   }
 ];

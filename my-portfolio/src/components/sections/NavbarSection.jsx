@@ -12,7 +12,7 @@ export default function NavbarSection({ menuOpen, setMenuOpen, handleContact }) 
       setScrolled(window.scrollY > 50);
 
       // Detect active section for highlight
-      const sections = ["home", "education", "experience", "portfolio", "story", "skills"];
+      const sections = ["home", "education", "experience", "portfolio", "story", "services"];
       const scrollPosition = window.scrollY + 150;
 
       for (const section of sections) {
@@ -38,6 +38,7 @@ export default function NavbarSection({ menuOpen, setMenuOpen, handleContact }) 
     { id: "experience", label: "Experience" },
     { id: "portfolio", label: "Projects" },
     { id: "story", label: "Story" },
+    { id: "services", label: "What I Can Do" }
   ];
 
   const handleNavClick = (e, id) => {

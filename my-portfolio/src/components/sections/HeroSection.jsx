@@ -167,10 +167,10 @@ export default function HeroSection({ handleContact }) {
           {[1, 2].map((g) => (
             <React.Fragment key={g}>
               <span className="tech-item">⚛️ React</span>
-              <span className="tech-item">📘 JavaScript</span>
+              <span className="tech-item">｡🇯‌🇸‌ JavaScript</span>
               <span className="tech-item">🟢 Node.js</span>
               <span className="tech-item">🐘 PostgreSQL</span>
-              <span className="tech-item">🐳 Docker</span>
+              <span className="tech-item">𝐊 Kotlin</span>
               <span className="tech-item">🐍 Python</span>
               <span className="tech-item">🎨 Figma</span>
               <span className="tech-item">📦 Git/Github</span>

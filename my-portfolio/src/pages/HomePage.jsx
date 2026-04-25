@@ -8,6 +8,7 @@ import ExperienceSection from "../components/sections/ExperienceSection";
 import ProjectSection from "../components/sections/ProjectSection";
 import StorySection from "../components/sections/StorySection";
 import FooterSection from "../components/sections/FooterSection";
+import ServicesSection from "../components/sections/ServicesSection";
 
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,6 +38,7 @@ export default function HomePage() {
         <ExperienceSection />
         <ProjectSection />
         <StorySection />
+        <ServicesSection />
       </main>
 
       {/* FOOTER SECTION */}
